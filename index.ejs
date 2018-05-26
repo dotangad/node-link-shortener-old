@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Link shortener">
+    <meta name="keywords" content="link shortener, nodejs, express, lowdb">
+    <meta name="author" content="Angad Singh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Link Shortener
+    </title>
+  </head>
+  <body>
+    <div class="form">
+      <input name="short" type="text" placeholder="Short" id="short" />
+      <br/>
+      <input name="long" type="text" placeholder="Long" id="long" />
+      <button id="create">Create shortlink</button>
+      <p id="result"></p>
+    </div>
+    <script>
+     const short = document.querySelector('input#short');
+     const long = document.querySelector('input#long');
+     const result = document.querySelector('p#result');
+     const create = document.querySelector('button#create');
+
+     function sendResponse(e) {
+       e.preventDefault();
+       fetch(`/api/create_route?short=${short.value}&long=${encodeURIComponent(long.value)}`)
+	 .then((res) => res.text())
+	 .then((res) => result.innerHTML = res);
+     }
+     
+     create.addEventListener('click', sendResponse);
+    </script>
+  </body>
+</html>

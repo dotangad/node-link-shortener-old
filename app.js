@@ -8,6 +8,8 @@ const app = express();
 const adapter = new FileSync('routes.json');
 const db = low(adapter);
 
+app.set('views', __dirname);
+app.set('view engine', 'ejs');
 app.use(bodyParser.json({ inflate: true }));
 
 db.defaults({})
@@ -39,7 +41,7 @@ app.get('/:short', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('index.ejs');
 });
 
 app.use(function(req, res, next){
