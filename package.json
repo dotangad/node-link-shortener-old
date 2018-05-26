@@ -1,0 +1,14 @@
+{
+  "name": "node-link-shortener",
+  "version": "1.0.0",
+  "description": "A link shortener written in nodejs",
+  "main": "app.js",
+  "repository": "https://github.com/angad19/node-link-shortener",
+  "author": "Angad Singh <angadsingh567890@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3",
+    "lowdb": "^1.0.0"
+  }
+}
